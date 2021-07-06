@@ -34,6 +34,7 @@ const Form = () => {
     formData.type === "Income" ? incomeCategories : expenseCategories;
 
   const createTransaction = () => {
+    if (!formData.amount || !formData.category) return;
     const transaction = {
       ...formData,
       amount: Number(formData.amount),
