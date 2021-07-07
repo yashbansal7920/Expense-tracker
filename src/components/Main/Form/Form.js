@@ -36,7 +36,7 @@ const Form = () => {
     formData.type === "Income" ? incomeCategories : expenseCategories;
 
   const createTransaction = () => {
-    if (!Number.isNaN(Number(formData.amount)) || !formData.date.includes("-"))
+    if (Number.isNaN(Number(formData.amount)) || !formData.date.includes("-"))
       return;
 
     const transaction = {

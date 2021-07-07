@@ -14,9 +14,13 @@ export const ExpenseTrackerContextProvider = ({ children }) => {
   const addTransaction = (transaction) =>
     dispatch({ type: "ADD_TRANSACTION", payload: transaction });
 
+  const balance = transactions.reduce((acc, val) => {
+    return val.type === "Expense" ? acc - val.amount : acc + val.amount;
+  }, 0);
+
   return (
     <ExpenseTrackerContext.Provider
-      value={{ transactions, deleteTransaction, addTransaction }}
+      value={{ transactions, deleteTransaction, addTransaction, balance }}
     >
       {children}
     </ExpenseTrackerContext.Provider>
