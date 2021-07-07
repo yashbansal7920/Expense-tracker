@@ -32,7 +32,7 @@ const Main = () => {
         >
           <InfoCard />
         </Typography>
-        <Divider />
+        <Divider className={classes.divider} />
         <Form />
         <CardContent className={classes.CardContent}>
           <Grid container spacing={2}>
